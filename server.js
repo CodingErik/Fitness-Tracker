@@ -13,9 +13,6 @@ const PORT = process.env.PORT || 3000;
 // require content from models folder 
 const db = require("./models");
 
-// require controllers
-const routes = require("./controllers");
-
 const app = express();
 
 app.use(logger("dev"));
@@ -49,25 +46,24 @@ app.get('/stats', (req, res) => {
 // API ROUTES 
 // **********************************************  
 // get all the workouts 
-app.get("/api/workouts", (req, res) => {
-    // db.Book.find({})
-    //     .then(dbBook => {
-    //         res.json(dbBook);
-    //     })
-    //     .catch(err => {
-    //         res.json(err);
-    //     });
+app.get("/api/workouts",  (req, res) => {
+    db.Workout.find({}).populate('exercises')
+    .then((response) => {
+         res.json(response); 
+    })
+    .catch((err) => {
+        res.json(err.message); 
+    })
 });
 
 // update a specific workout 
-app.put("/api/workouts/:id", (req, res) => {
-    // db.Library.find({})
-    //     .then(dbLibrary => {
-    //         res.json(dbLibrary);
-    //     })
-    //     .catch(err => {
-    //         res.json(err);
-    //     });
+app.put("/api/workouts/:id", async ({ params, body }, res) => {
+    try {
+        let data = await db.Workout.update({ _id: ObjectId(params) }, { body });
+        res.json(data);
+    } catch ({ message }) {
+        res.json(message);
+    }
 });
 
 // create a new workout 
@@ -80,6 +76,7 @@ app.post("/api/workouts", (req, res) => {
     //     .catch(err => {
     //         res.json(err);
     //     });
+    db.Exercise
 });
 
 // get a range of the workouts 
