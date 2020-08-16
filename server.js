@@ -43,3 +43,10 @@ app.get('/exercise', (req, res) => {
     // send user to the index of the page 
     res.sendFile(path.join(__dirname, "./public/exercise.html"))
 }); 
+
+
+// stats page
+app.get('/stats', (req, res) => {
+    // send user to the index of the page 
+    res.sendFile(path.join(__dirname, "./public/stats.html"))
+}); 
