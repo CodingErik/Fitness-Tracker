@@ -50,3 +50,14 @@ app.get('/stats', (req, res) => {
     // send user to the index of the page 
     res.sendFile(path.join(__dirname, "./public/stats.html"))
 }); 
+
+
+// API ROUTES 
+// **********************************************
+
+
+
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
