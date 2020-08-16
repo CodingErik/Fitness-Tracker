@@ -38,3 +38,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "./public/index.html"))
 }); 
 
+// exercise page
+app.get('/exercise', (req, res) => {
+    // send user to the index of the page 
+    res.sendFile(path.join(__dirname, "./public/exercise.html"))
+}); 
