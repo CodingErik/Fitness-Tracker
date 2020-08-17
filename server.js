@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 3000;
 
 // require content from models folder 
 const db = require("./models");
+// const { runInNewContext } = require("vm");
+// const { resolveSoa } = require("dns");
 
 const app = express();
 
@@ -46,6 +48,7 @@ app.get('/stats', (req, res) => {
 // API ROUTES 
 // **********************************************  
 // get all the workouts 
+/// this is working [DONE]
 app.get("/api/workouts", (req, res) => {
     db.Workout.find({})
         .then((response) => {
@@ -56,19 +59,22 @@ app.get("/api/workouts", (req, res) => {
         })
 });
 
-// update a specific workout 
-app.put("/api/workouts/:id", async ({ params, body }, res) => {
-    try {
-        let data = await db.Workout.update({ _id: ObjectId(params) },{ $push: { exercises: body } });
-        console.log(data, "this is the workout")
-        res.json(data);
-    } catch ({ message }) {
-        res.json(message);
-    }
+// update a specific workout
+// this is working  
+app.put("/api/workouts/:id", async (req, res) => {
+    db.Workout.update(
+        // update workout
+        { _id: mongoose.Types.ObjectId(req.params.id) }, // where id is given id
+        { $push: { exercises: req.body } }, // add new exercise 
+        { new: true } // return the updated object
+    )
+        .then((data) => res.json(data)) 
+        .catch((err) => res.json(err)); 
+
 });
 
 // create a new workout 
-/// this is working 
+/// this is working [DONE]
 app.post("/api/workouts", async ({ body }, res) => {
     // create a new workout 
     try {
@@ -82,7 +88,7 @@ app.post("/api/workouts", async ({ body }, res) => {
 
 // get a range of the workouts 
 app.get("/api/workouts/range", (req, res) => {
-     // create a new workout 
+    // create a new workout 
     //  try {
     //     let data = await db.Workout.find({})
     //     console.log({ data });
