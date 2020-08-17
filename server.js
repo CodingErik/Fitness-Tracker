@@ -31,6 +31,11 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { use
 
 // HTML ROUTES 
 // **********************************************
+// index page 
+app.get('/', (req, res) => {
+    // send user to the index of the page 
+    res.sendFile(path.join(__dirname, "./public/index.html"))
+});
 // exercise page
 app.get('/exercise', (req, res) => {
     // send user to the index of the page 

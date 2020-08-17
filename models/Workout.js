@@ -23,7 +23,8 @@ const ExerciseSchema = new Schema({
 
 const WorkoutSchema = new Schema({
     day: {
-        type: Date
+		type: Date,
+		default: Date.now
     },
     // this will show the exercises for the day 
     exercises: [ExerciseSchema]
