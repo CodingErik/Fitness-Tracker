@@ -4,19 +4,36 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const ExerciseSchema = new Schema({
+	// creates type attribute
+	type: String,
+
+	// creates name attribute
+	name: String,
+
+	// creates duration attribute
+	duration: Number,
+
+	// creates distance attribute
+	distance: Number,
+
+	// creates weight attribute
+	weight: Number,
+
+	// creates reps attribute
+	reps: Number,
+
+	// creates sets attribute
+	sets: Number,
+});
+
 const WorkoutSchema = new Schema({
     day: {
         type: Date
     },
     // this will show the exercises for the day 
-    exercises: [
-        {
-            // this id referencing the model 
-            type: Schema.Types.ObjectId,
-            /// the reference of the Exercise collection
-            ref: "Exercise"
-        }
-    ]
+    exercises: [ExerciseSchema]
+
 });
 
 

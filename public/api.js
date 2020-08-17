@@ -20,7 +20,7 @@ const API = {
     });
 
     const json = await res.json();
-
+    console.log(res)
     return json;
   },
   async createWorkout(data = {}) {

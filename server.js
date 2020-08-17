@@ -46,20 +46,21 @@ app.get('/stats', (req, res) => {
 // API ROUTES 
 // **********************************************  
 // get all the workouts 
-app.get("/api/workouts",  (req, res) => {
-    db.Workout.find({}).populate('exercises')
-    .then((response) => {
-         res.json(response); 
-    })
-    .catch((err) => {
-        res.json(err.message); 
-    })
+app.get("/api/workouts", (req, res) => {
+    db.Workout.find({})
+        .then((response) => {
+            res.json(response);
+        })
+        .catch((err) => {
+            res.json(err.message);
+        })
 });
 
 // update a specific workout 
 app.put("/api/workouts/:id", async ({ params, body }, res) => {
     try {
-        let data = await db.Workout.update({ _id: ObjectId(params) }, { body });
+        let data = await db.Workout.update({ _id: ObjectId(params) },{ $push: { exercises: body } });
+        console.log(data, "this is the workout")
         res.json(data);
     } catch ({ message }) {
         res.json(message);
@@ -67,27 +68,28 @@ app.put("/api/workouts/:id", async ({ params, body }, res) => {
 });
 
 // create a new workout 
-app.post("/api/workouts", (req, res) => {
-    // db.Library.find({})
-    //     .populate("books")
-    //     .then(dbLibrary => {
-    //         res.json(dbLibrary);
-    //     })
-    //     .catch(err => {
-    //         res.json(err);
-    //     });
-    db.Exercise
+/// this is working 
+app.post("/api/workouts", async ({ body }, res) => {
+    // create a new workout 
+    try {
+        let data = await db.Workout.create(body)
+        console.log({ data });
+        res.json(data);
+    } catch ({ message }) {
+        res.json(message);
+    }
 });
 
 // get a range of the workouts 
-app.get("/api/workouts", (req, res) => {
-    // db.Book.find({})
-    //     .then(dbBook => {
-    //         res.json(dbBook);
-    //     })
-    //     .catch(err => {
-    //         res.json(err);
-    //     });
+app.get("/api/workouts/range", (req, res) => {
+     // create a new workout 
+    //  try {
+    //     let data = await db.Workout.find({})
+    //     console.log({ data });
+    //     res.json(data);
+    // } catch ({ message }) {
+    //     res.json(message);
+    // }
 });
 
 
