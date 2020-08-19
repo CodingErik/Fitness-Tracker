@@ -94,13 +94,13 @@ app.post("/api/workouts", async ({ body }, res) => {
 
 // get a range of the workouts 7 days
 app.get("/api/workouts/range", async (req, res) => {
-
-    // from today back 
-    // let data = await db.Workout.find({}).limit(2);
-    // let data = await db.Workout.find({});
-    let data = await db.Workout.find({}, null, {sort: {date: -1}}).limit(5); 
-    // console.log(data); 
-    res.send(data); 
+    try {
+        // get the last 7 days tracked on the app 
+        let data = await db.Workout.find({}).sort({ day: -1 }).limit(7)
+        res.json(data); 
+    } catch (error) {
+        res.json(error); 
+    }
 });
 
 
