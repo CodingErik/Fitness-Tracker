@@ -18,7 +18,7 @@
 
 ## Description
 
-**Workout Tracker** A consumer will reach their fitness goals quicker when they track their workout progress.
+**Fitness Tracker** A consumer will reach their fitness goals quicker when they track their workout progress.
 
 ---
 
@@ -44,7 +44,7 @@
 
 ## Reference Links
 
-Link to **Workout Tracker** deployed on Heroku - [Fitness Tracker Live App]()
+Link to **Fitness Tracker** deployed on Heroku - [Fitness Tracker Live App]()
 
 Link to **GitHub Repo** used for application development - [Fitness Tracker GitHub Repo](https://github.com/CodingErik/Fitness-Tracker)
 
