@@ -1,51 +1,91 @@
-# Unit 17 Nosql Homework: Workout Tracker
+# Workout Tracker
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+### Table of Contents
+
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [MVP](#mvp)
+- [Reference Links](#reference-links)
+  - [Workout Tracker Live App](https://workout-tracker-platform.herokuapp.com/)
+  - [Workout Tracker GitHub Repo](https://github.com/ystamaritq/workout-tracker)
+- [Installation Instructions](#installation-instructions)
+  - [Project Technologies](#project-technologies)
+  - [Node Dependencies](#node-depencencies)
+- [Licensing](#licensing)
+
+---
+
+## Description
+
+**Workout Tracker** A consumer will reach their fitness goals quicker when they track their workout progress.
+
+---
 
 ## User Story
 
-* As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+`As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.`
 
-## Business Context
-
-A consumer will reach their fitness goals quicker when they track their workout progress.
+---
 
 ## Acceptance Criteria
 
-When the user loads the page, they should be given the option to create a new workout, or continue with their last workout.
+- As a User I can add exercises to a previous workout plan
+- As a User I add new exercises to a new workout plan
+- As a User I can view multiple the combined weight of multiple exercises on the `stats` page
 
-The user should be able to:
+---
 
-  * Add exercises to a previous workout plan.
+## MVP
 
-  * Add new exercises to a new workout plan.
+- Allow user to add exercises to a previous workout plan
+- Allow user add new exercises to a new workout plan
+- Displays multiple the combined weight of multiple exercises on the `stats` page
 
-  * View multiple the combined weight of multiple exercises on the `stats` page.
+## Reference Links
 
-## Commit Early and Often
+Link to **Workout Tracker** deployed on Heroku - [Workout Tracker Live App](https://workout-tracker-platform.herokuapp.com/)
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+Link to **GitHub Repo** used for application development - [Workout Tracker GitHub Repo](https://github.com/CodingErik/Fitness-Tracker)
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
+---
 
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
+## Installation Instructions
 
-Follow these guidelines for committing:
+To test this project, simply follow these steps:
 
-* Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
+**Pre-requirements:** `Have an available connection to Mongo database`
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
+1. Install **node.js**, your can install. here [click here](https://nodejs.org/en/) to download the application.
 
-* Don't commit half done work, for the sake of your collaborators (and your future self!)
+2. Run `npm install or npm i` in your terminal in order to install all required **node modules** in the package.json.
 
-* Test your application before you commit to ensure functionality at every step in the development process
+3. Clone the repo
 
-We would like you to have well over 200 commits by graduation, so commit early and often!
+4. Then `run node server.js` in order to start locally the App/
 
-## Submission on BCS
+5. run `npm run seed ` to set up the dummy seed file. 
 
-You are required to submit the following:
+### Project Technologies
 
-* The URL to the deployed application
+- `Node.js - An asynchronous event-driven JavaScript runtime`
+- `Express - Node.js web application framework that provides a robust set of features for web and mobile applications`
+- `Deploy web app using Heroku`
 
-* The URL to the Github repository
+### Node Dependencies
+
+- `express` - minimalist web framework for node.
+- `morgan` - HTTP request logger middleware for node.js
+- `mongoose` - object modeling tool designed to work in an asynchronous environment
+- `chart.js` -  charting library which currently supports bar charts. Implementations are done on-top of a HTML5 canvas element.
+
+---
+
+## Licensing
+
+ licensed under MIT license."
+
+
+## Contributors
+
+- Erik De Luna - Full stack dev
