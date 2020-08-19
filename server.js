@@ -73,8 +73,8 @@ app.put("/api/workouts/:id", async (req, res) => {
         { $push: { exercises: req.body } }, // add new exercise 
         { new: true } // return the updated object
     )
-        .then((data) => res.json(data)) 
-        .catch((err) => res.json(err)); 
+        .then((data) => res.json(data))
+        .catch((err) => res.json(err));
 
 });
 
@@ -91,16 +91,14 @@ app.post("/api/workouts", async ({ body }, res) => {
     }
 });
 
-// get a range of the workouts 
+// get a range of the workouts 7 days
 app.get("/api/workouts/range", (req, res) => {
-    // create a new workout 
-    //  try {
-    //     let data = await db.Workout.find({})
-    //     console.log({ data });
-    //     res.json(data);
-    // } catch ({ message }) {
-    //     res.json(message);
-    // }
+
+    // from today back 
+    db.Workout.find({}, (err, data) => {
+    // pull the data for the days
+    })
+
 });
 
 
