@@ -21,10 +21,13 @@ async function initExercise() {
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
+    // after being sent to the back-end 
+    // to create a new workout 
     workout = await API.createWorkout()
-    console.log(workout)
   }
   if (workout) {
+    // it CHANGES the url to display the id of 
+    // * the current workout 
     location.search = "?id=" + workout._id;
   }
 
@@ -149,7 +152,7 @@ function clearInputs() {
 // when the user select an option 
 workoutTypeSelect.addEventListener("change", handleWorkoutTypeChange);
 
-// the user click on the complete button 
+// the user click on the COMPLETE BUTTON
 completeButton.addEventListener("click", function (event) {
   shouldNavigateAway = true;
   handleFormSubmit(event);
