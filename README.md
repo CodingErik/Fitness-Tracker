@@ -1,4 +1,4 @@
-# Workout Tracker
+# Fitness Tracker
 
 ### Table of Contents
 
