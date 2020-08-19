@@ -32,6 +32,8 @@ async function initExercise() {
 
 initExercise();
 
+// depending on what the dropdown selection is the 
+// DOM will display different set of elements 
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -49,9 +51,12 @@ function handleWorkoutTypeChange(event) {
   validateInputs();
 }
 
+// gather all the  values 
 function validateInputs() {
   let isValid = true;
 
+  // if any of theses inputs are empty 
+  // we will not be able to use the buttons 
   if (workoutType === "resistance") {
     if (nameInput.value.trim() === "") {
       isValid = false;
@@ -86,6 +91,8 @@ function validateInputs() {
     }
   }
 
+  // when all input have values
+  // THEN the buttons will not be grayed out 
   if (isValid) {
     completeButton.removeAttribute("disabled");
     addButton.removeAttribute("disabled");
@@ -137,18 +144,20 @@ function clearInputs() {
   weightInput.value = "";
 }
 
-if (workoutTypeSelect) {
-  workoutTypeSelect.addEventListener("change", handleWorkoutTypeChange);
-}
-if (completeButton) {
-  completeButton.addEventListener("click", function (event) {
-    shouldNavigateAway = true;
-    handleFormSubmit(event);
-  });
-}
-if (addButton) {
-  addButton.addEventListener("click", handleFormSubmit);
-}
+
+
+// when the user select an option 
+workoutTypeSelect.addEventListener("change", handleWorkoutTypeChange);
+
+// the user click on the complete button 
+completeButton.addEventListener("click", function (event) {
+  shouldNavigateAway = true;
+  handleFormSubmit(event);
+});
+
+// the user click on the add button 
+addButton.addEventListener("click", handleFormSubmit);
+
 toast.addEventListener("animationend", handleToastAnimationEnd);
 
 document
