@@ -44,9 +44,9 @@
 
 ## Reference Links
 
-Link to **Workout Tracker** deployed on Heroku - [Workout Tracker Live App](https://workout-tracker-platform.herokuapp.com/)
+Link to **Workout Tracker** deployed on Heroku - [Fitness Tracker Live App]()
 
-Link to **GitHub Repo** used for application development - [Workout Tracker GitHub Repo](https://github.com/CodingErik/Fitness-Tracker)
+Link to **GitHub Repo** used for application development - [Fitness Tracker GitHub Repo](https://github.com/CodingErik/Fitness-Tracker)
 
 ---
 
