@@ -82,6 +82,7 @@ app.put("/api/workouts/:id", async (req, res) => {
 /// this is working [DONE]
 app.post("/api/workouts", async ({ body }, res) => {
     // create a new workout 
+    // includes date and id 
     try {
         let data = await db.Workout.create(body)
         console.log({ data });
@@ -92,13 +93,14 @@ app.post("/api/workouts", async ({ body }, res) => {
 });
 
 // get a range of the workouts 7 days
-app.get("/api/workouts/range", (req, res) => {
+app.get("/api/workouts/range", async (req, res) => {
 
     // from today back 
-    db.Workout.find({}, (err, data) => {
-    // pull the data for the days
-    })
-
+    // let data = await db.Workout.find({}).limit(2);
+    // let data = await db.Workout.find({});
+    let data = await db.Workout.find({}, null, {sort: {date: -1}}).limit(5); 
+    // console.log(data); 
+    res.send(data); 
 });
 
 
